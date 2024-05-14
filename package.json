@@ -10,9 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@react-google-maps/api": "^2.19.3",
+    "@vis.gl/react-google-maps": "^1.0.0",
     "axios": "^1.6.8",
-    "google-map-react": "^2.2.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

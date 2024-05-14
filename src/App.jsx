@@ -1,13 +1,11 @@
-import { useState } from 'react'
-import GoogleMapReact from 'google-map-react';
-import './App.css'
+import GoogleMap from "./components/Map/Map"
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
       <h1>Hello, world</h1>
+      <GoogleMap/>
     </>
   )
 }
