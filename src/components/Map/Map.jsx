@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState } from 'react';
 import {
     APIProvider,
     Map,
@@ -6,10 +6,18 @@ import {
     Pin,
     InfoWindow
 } from "@vis.gl/react-google-maps";
+import {APILoader, PlaceOverview} from '@googlemaps/extended-component-library/react';
 
 import './Map.styles.css';
 
+//testing ************************************
+const raw_data = {latitude: 6.0304592, longitude: 80.2150207} 
+const {latitude: lat, longitude: lng} = raw_data;
+
+// ***************************************
+
 function GoogleMap() {
+    const[open, setOpen] = useState(false);
 
     const defaultCenter = {lat: 7.8731, lng: 80.7718};
     const defaultZoom = 8;
@@ -29,6 +37,22 @@ function GoogleMap() {
                     restriction={{latLngBounds: boundRestrictions}}
                     mapId={import.meta.env.VITE_MAP_ID}
                 >
+                    <AdvancedMarker position={{lat, lng}} onClick={() => setOpen(true)}>
+                        <Pin
+                            background={"red"}
+                            borderColor={"orange"}
+                            glyphColor={"yellow"}
+                        />
+                    </AdvancedMarker>
+
+                    {open && 
+                        <InfoWindow position={{lat, lng}} onCloseClick={() => setOpen(false)}>
+                            <div className="container">
+                                <APILoader apiKey="YOUR_API_KEY_HERE" solutionChannel="GMP_GCC_placeoverview_v1_xl" />
+                                <PlaceOverview place="ChIJXQLueKNz4ToR_sMWrhaKb7k"/>
+                            </div>
+                        </InfoWindow>
+                    }
                 </Map>
             </div>
         </APIProvider>

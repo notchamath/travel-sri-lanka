@@ -2,12 +2,11 @@ import React from 'react'
 
 function AdminPage() {
 
-    
     const fetchData = async (input) => {
         const url = `https://places.googleapis.com/v1/places/${input}`;
         const headers = {
             'X-Goog-Api-Key': import.meta.env.VITE_GOOGLE_MAP_KEY,
-            'X-Goog-FieldMask': '*'
+            'X-Goog-FieldMask': 'id,location'
         };
         
         try{
