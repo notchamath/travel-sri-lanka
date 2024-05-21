@@ -1,0 +1,55 @@
+@import '../../config';
+
+.signin__container{
+    width: 300px;
+    padding: 1rem;
+
+    .signin__btns-container{
+        display: flex;
+        margin: 1rem 0;
+        
+        .signin__btns{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: .5rem;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            color: $primary-color;
+            background-color: $accent-color;
+            border: none;
+
+            .signin__btns-icon{
+                font-size: 16px;
+                padding-right: 5px;
+            }
+
+            &:active{
+                transform: translate(-2px, -2px);
+            }
+        }
+
+        .google-signin{
+            background-color: #4285F4;
+            margin-bottom: 1rem;
+            margin-right: 1rem;
+
+        }
+
+        .github-signin{
+            background-color: #333;
+            margin-bottom: 1rem;
+        }
+    }
+}
+
+// media queries
+@media screen and (max-width: 800px) {
+    .signin__container{
+        width: 280px;
+        border: 1px $accent-color solid;
+        border-top-right-radius: 25px;
+        border-bottom-left-radius: 25px;
+    }
+}
