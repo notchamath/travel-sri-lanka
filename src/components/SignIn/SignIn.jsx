@@ -24,13 +24,11 @@ function SignIn() {
     event.preventDefault();
 
     try {
-      const res = await signInWithEmailPw(email, password);
-
+      await signInWithEmailPw(email, password);
       resetFormFields();
 
-      console.log(res)
-
     } catch (error) {
+      alert(error.message)
       console.log(error);
     }
   };
