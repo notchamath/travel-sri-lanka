@@ -26,23 +26,24 @@ export const signOutUser = async () => signOut(auth);
 
 export const onAuthStateChangedListener = (callback) => onAuthStateChanged(auth, callback);
 
+
 // FireStore
-// export const db = getFirestore();
+export const db = getFirestore();
 
-// export const createUserDocumentFromAuth = async (userAuth) => {
-//   const userDocRef = doc(db, 'users', userAuth.uid);
-//   const userSnapshot = await getDoc(userDocRef);
+export const addNewLocationToDb = async (locationData, category) => {
+  const locationDocRef = doc(db, category, locationData.id);
+  const locationSnapshot = await getDoc(locationDocRef);
 
-//   if (!userSnapshot.exists()){
-//     const { displayName, email } = userAuth;
-//     const createdAt = new Date();
+  if (!locationSnapshot.exists()){
+    const createdAt = new Date();
 
-//     try {
-//       await setDoc(userDocRef, {displayName, email, createdAt});
-//     } catch (err) {
-//       console.log('ERROR: ', err.message);
-//     }
-//   }
-
-//   return userDocRef;
-// }
+    try {
+      await setDoc(locationDocRef, {createdAt, ...locationData});
+      alert('Item added to DB!');
+    } catch (err) {
+      console.log('ERROR: ', err.message);
+    }
+  } else {
+    alert('Location is already in Database');
+  }
+}
