@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "firebase/auth";
-import { getFirestore, doc, getDoc, setDoc } from "firebase/firestore";
+import { getFirestore, doc, getDoc, setDoc, getDocs, query, collection } from "firebase/firestore";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -47,3 +47,14 @@ export const addNewLocationToDb = async (locationData, category) => {
     alert('Location is already in Database');
   }
 }
+
+export const getAllLocationsFromDb = async () => {
+
+  const q = query(collection(db, 'landmarks'));
+  const locations = await getDocs(q);
+
+  const locationsList = locations.docs.map(doc => doc.data());
+
+  return locationsList;
+}
+

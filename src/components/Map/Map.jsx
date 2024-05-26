@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {
     APIProvider,
     Map,
@@ -6,18 +6,24 @@ import {
     Pin,
     InfoWindow
 } from "@vis.gl/react-google-maps";
-import {APILoader, PlaceOverview} from '@googlemaps/extended-component-library/react';
+import { APILoader, PlaceOverview } from '@googlemaps/extended-component-library/react';
+
+import { getAllLocationsFromDb } from '../../utils/firebase/firebase.utils';
 
 import './Map.styles.css';
 
-//testing ************************************
-const raw_data = {latitude: 6.0304592, longitude: 80.2150207} 
-const {latitude: lat, longitude: lng} = raw_data;
-
-// ***************************************
-
 function GoogleMap() {
+    
     const[open, setOpen] = useState(false);
+    const[locationsList, setLocationsList] = useState([]);
+
+    useEffect(() => {
+        const fetchLocations = async () => {
+            const locations = await getAllLocationsFromDb();
+            setLocationsList(locations);
+        }
+        fetchLocations();
+    }, []);
 
     const defaultCenter = {lat: 7.8731, lng: 80.7718};
     const defaultZoom = 8;
@@ -37,22 +43,31 @@ function GoogleMap() {
                     restriction={{latLngBounds: boundRestrictions}}
                     mapId={import.meta.env.VITE_MAP_ID}
                 >
-                    <AdvancedMarker position={{lat, lng}} onClick={() => setOpen(true)}>
-                        <Pin
-                            background={"red"}
-                            borderColor={"orange"}
-                            glyphColor={"yellow"}
-                        />
-                    </AdvancedMarker>
+                    {locationsList.map(location => {
+                        const coords = {
+                            lat: location.location.latitude,
+                            lng: location.location.longitude,
+                        };
 
-                    {open && 
-                        <InfoWindow position={{lat, lng}} onCloseClick={() => setOpen(false)}>
-                            <div className="container">
-                                <APILoader apiKey="YOUR_API_KEY_HERE" solutionChannel="GMP_GCC_placeoverview_v1_xl" />
-                                <PlaceOverview place="ChIJXQLueKNz4ToR_sMWrhaKb7k"/>
-                            </div>
-                        </InfoWindow>
-                    }
+                        return <>
+                            <AdvancedMarker position={coords} onClick={() => setOpen(true)}>
+                                <Pin
+                                    background={"red"}
+                                    borderColor={"orange"}
+                                    glyphColor={"yellow"}
+                                />
+                            </AdvancedMarker>
+                            {open && 
+                                <InfoWindow position={coords} onCloseClick={() => setOpen(false)}>
+                                    <div className="container">
+                                        <APILoader apiKey="YOUR_API_KEY_HERE" solutionChannel="GMP_GCC_placeoverview_v1_xl" />
+                                        <PlaceOverview place={location.id}/>
+                                    </div>
+                                </InfoWindow>
+                            }
+                        </>
+                    })}
+
                 </Map>
             </div>
         </APIProvider>
