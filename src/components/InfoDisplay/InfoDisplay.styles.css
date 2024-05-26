@@ -1,0 +1,16 @@
+#info-dispaly_container{
+  position: absolute;
+  top: 15%;
+  left: 1%;
+  z-index: 1;
+  height: 70vh;
+  width: 25%;
+  overflow: auto;
+  border-radius: 15px;
+  direction: rtl;
+  margin: 15px;
+}
+
+#info-dispaly_info{
+  direction:ltr;
+}

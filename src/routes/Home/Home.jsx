@@ -1,4 +1,4 @@
-import GoogleMap from '../../components/Map/Map';
+import GoogleMap from '../../components/Map/GoogleMap';
 
 function Home() {
   return (
