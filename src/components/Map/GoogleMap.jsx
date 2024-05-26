@@ -13,6 +13,7 @@ import './GoogleMap.styles.css';
 
 function GoogleMap() {
     
+    const[open, setOpen] = useState(false);
     const[openId, setOpenId] = useState(null);
     const[locationsList, setLocationsList] = useState([]);
 
@@ -25,6 +26,7 @@ function GoogleMap() {
     }, []);
 
     const handlePinClick = (id) => {
+        setOpen(true);
         setOpenId(id);
     }
 
@@ -39,7 +41,7 @@ function GoogleMap() {
 
     return (
         <>
-            <InfoDisplay id={openId}/>
+            <InfoDisplay id={openId} open={open} setOpen={setOpen}/>
             <APIProvider apiKey={import.meta.env.VITE_GOOGLE_MAP_KEY}>
                 <div id='map'>
                     <Map 
