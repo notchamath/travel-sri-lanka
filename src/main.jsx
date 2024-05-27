@@ -6,6 +6,8 @@ import { UserProvider } from './contexts/user.context.jsx';
 
 import App from './App.jsx'
 
+import './main.scss';
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>

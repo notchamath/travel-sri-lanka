@@ -42,8 +42,6 @@ function SignIn() {
 
   return (
     <div className='signin__container'>
-      <h2>Sign In</h2>
-      <span>Sign In with your Email and Password or Use a Gmail or Github Account</span>
 
       <form onSubmit={handleSubmit}>
         <FormInput
@@ -63,6 +61,7 @@ function SignIn() {
           name='password'
           value={password}
         />
+        
         <div className='signin__btns-container'>
           <button className='signin__btns' type='submit'>Sign In</button>
         </div>

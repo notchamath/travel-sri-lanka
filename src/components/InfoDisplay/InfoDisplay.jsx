@@ -1,7 +1,7 @@
 import { memo, useEffect, useRef } from 'react';
 import { APILoader, PlaceOverview } from '@googlemaps/extended-component-library/react';
 
-import './InfoDisplay.styles.css';
+import './InfoDisplay.styles.scss';
 
 const InfoDisplay = memo(({id, open, setOpen}) => {
 

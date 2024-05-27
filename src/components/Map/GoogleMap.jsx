@@ -9,7 +9,7 @@ import {
 import InfoDisplay from '../InfoDisplay/InfoDisplay';
 import { getAllLocationsFromDb } from '../../utils/firebase/firebase.utils';
 
-import './GoogleMap.styles.css';
+import './GoogleMap.styles.scss';
 
 function GoogleMap() {
     

@@ -1,4 +1,5 @@
-// form-inputs component, receives data from sign-up and sign-in forms
+import './FormInput.styles.scss';
+
 const FormInput = ({ label, ...otherProps }) => {
   return (
     <div className='group'>

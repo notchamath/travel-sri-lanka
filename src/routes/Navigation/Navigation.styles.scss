@@ -1,0 +1,151 @@
+@import '../../config';
+
+.app-container{
+    position: relative;
+
+    .navigation__nav{
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        min-width: 300px;
+        padding: 0 5rem;
+        top: 0;
+        z-index: 11;
+
+        background: $grey-dark-gradient;
+
+        .logo-container{
+            cursor: pointer;
+        }
+
+        .navigation__buttons{
+            display: flex;
+
+            .navigation__btn{
+                margin: 0 1rem;
+                color: $primary-color;
+                text-decoration: none;
+                border: 3px solid $primary-color;
+                padding: .4rem .6rem;
+                font-weight: bold;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: all .2s ease-in-out;
+        
+                &:hover{
+                    color: black;
+                    background-color: $primary-color;
+                }
+
+            }
+
+            .my-team{
+                color: $accent-color;
+                border: 3px solid $accent-color;
+
+                &:hover{
+                    color: $primary-color;
+                    background-color: $accent-color;
+                }
+            }
+        }
+
+    }
+
+    .navigation__aside{
+        position: fixed;
+        padding: .5rem 2rem;
+        top: 50vh;
+        left: -220px;
+        transform: rotate(-90deg);
+        font-size: 1.1rem;
+        font-weight: bold;
+        letter-spacing: 3px;
+        color: $primary-color;
+        background: $accent-color;
+        z-index: 10;
+    }
+}
+
+// media queries
+@media screen and (max-width: 1200px) {
+
+    .app-container{
+        .navigation__aside{
+        font-size: 15px;
+        letter-spacing: 1px;
+        left: 0;
+        transform: rotate(-90deg) translateY(-460%);
+        }
+    }
+}
+@media screen and (max-width: 800px) {
+    .app-container{
+        .navigation__aside{
+            font-size: 9px;
+            letter-spacing: 1px;
+            left: 0;
+            transform: rotate(-90deg) translate(-5%, -420%);
+        }
+
+        .navigation__nav{
+
+            display: flex;
+            justify-content: space-around;
+        
+            .navigation__buttons{
+        
+                .navigation__btn{
+                    margin: 0;
+                }
+        
+                .my-team{
+                    color: $accent-color;
+                    border: 3px solid $accent-color;
+                    margin-right: 1rem;
+        
+                    &:hover{
+                        color: $primary-color;
+                        background-color: $accent-color;
+                    }
+                }
+            }
+        
+        }
+    }
+}
+@media screen and (max-width: 500px) {
+
+    .app-container{
+        .navigation__nav{
+
+            display: flex;
+            justify-content: space-around;
+        
+            .navigation__buttons{
+        
+                .navigation__btn{
+                    font-size: .8rem;
+                    border: 2px solid;
+                }
+            }
+        }
+
+        .navigation__aside{
+            padding: .2rem 2rem;
+            transform: rotate(-90deg) translate(-5%, -640%);
+        }
+
+    }
+}
+@media (orientation: landscape) and (max-width: 900px) {
+    .app-container{
+        .navigation__aside{
+            font-size: 9px;
+            letter-spacing: 1px;
+            left: 0;
+            transform: rotate(-90deg) translate(-5%, -400%);
+        }
+    }
+}

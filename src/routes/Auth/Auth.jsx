@@ -1,8 +1,12 @@
 import SignIn from "../../components/SignIn/SignIn";
 
+import './Auth.styles.scss';
+
 function Auth() {
   return (
-    <SignIn/>
+    <div className='auth__container'>
+      <SignIn/>
+    </div>
   )
 }
 
