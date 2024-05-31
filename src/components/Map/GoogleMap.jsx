@@ -59,12 +59,8 @@ function GoogleMap() {
                             const id = location.id;
 
                             return <div key={id}>
-                                <AdvancedMarker position={coords} onClick={() => handlePinClick(id)}>
-                                    <Pin
-                                        background={"#000000"}
-                                        borderColor={"#FFFFFF"}
-                                        glyphColor={"yellow"}
-                                    />
+                                <AdvancedMarker  className={'marker_emoji'} position={coords} onClick={() => handlePinClick(id)}>
+                                    <span>🏝️</span>
                                 </AdvancedMarker>
                             </div>
                         })}

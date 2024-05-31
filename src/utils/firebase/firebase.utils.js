@@ -30,6 +30,8 @@ export const onAuthStateChangedListener = (callback) => onAuthStateChanged(auth,
 // FireStore
 export const db = getFirestore();
 
+export const CATEGORIES = ['Tourist Attraction', 'Beach', 'National Park', 'Temple', 'Hotel', 'Restaurant'];
+
 export const addNewLocationToDb = async (locationData, category) => {
   const locationDocRef = doc(db, category, locationData.id);
   const locationSnapshot = await getDoc(locationDocRef);
