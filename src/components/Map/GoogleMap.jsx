@@ -14,7 +14,7 @@ import './GoogleMap.styles.scss';
 function GoogleMap() {
     
     const[open, setOpen] = useState(false);
-    const[openId, setOpenId] = useState(null);
+    const[openLocation, setOpenLocation] = useState({});
     const[locationsList, setLocationsList] = useState({});
 
     useEffect(() => {
@@ -25,9 +25,9 @@ function GoogleMap() {
         fetchLocations();        
     }, []);
 
-    const handlePinClick = (id) => {
+    const handlePinClick = (id, category, desc) => {
         setOpen(true);
-        setOpenId(id);
+        setOpenLocation({id, category, desc, emoji: getEmoji(category)});
     }
 
     const defaultCenter = {lat: 7.8731, lng: 80.7718};
@@ -43,24 +43,24 @@ function GoogleMap() {
 
         switch(category){
             case CATEGORIES[0]:
-                // TOURIST ATTRACTION
-                return <span>📷</span>
-            case CATEGORIES[1]:
+                // Tourist Attraction
+                return '📷'
+           case CATEGORIES[1]:
                 // Beach
-                return <span>🏝️</span>
-            case CATEGORIES[2]:
+                return '🏝️'
+           case CATEGORIES[2]:
                 // National Park
-                return <span>🐘</span>
-            case CATEGORIES[3]:
+                return '🐘'
+           case CATEGORIES[3]:
                 // Temple
-                return <span>🙏</span>
-            case CATEGORIES[4]:
+                return '🙏'
+           case CATEGORIES[4]:
                 // Hotel
-                return <span>🏨</span>
-            case CATEGORIES[5]:
+                return '🏨'
+           case CATEGORIES[5]:
                 // Restaurant
-                return <span>🍴</span>
-            default:
+                return '🍴'
+           default:
                 <Pin/>
         }
     }
@@ -76,10 +76,11 @@ function GoogleMap() {
                 };
                 
                 const id = location.id;
+                const desc = location?.editorialSummary?.text
                 
                 return <div key={id}>
-                    <AdvancedMarker  className={'marker_emoji'} position={coords} onClick={() => handlePinClick(id)}>
-                        {getEmoji(category)}
+                    <AdvancedMarker  className={'marker_emoji'} position={coords} onClick={() => handlePinClick(id, category, desc)}>
+                        <span>{getEmoji(category)}</span>
                     </AdvancedMarker>
                 </div>
             });
@@ -88,7 +89,7 @@ function GoogleMap() {
 
     return (
         <>
-            <InfoDisplay id={openId} open={open} setOpen={setOpen}/>
+            <InfoDisplay openLocation={openLocation} open={open} setOpen={setOpen}/>
             <APIProvider apiKey={import.meta.env.VITE_GOOGLE_MAP_KEY}>
                 <div id='map'>
                     <Map 

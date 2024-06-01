@@ -4,13 +4,24 @@
   left: 1%;
   z-index: 1;
   height: 70vh;
-  width: 25%;
+  width: 18%;
+  min-width: 300px;
   overflow: auto;
   border-radius: 15px;
   direction: rtl;
   margin: 15px;
-}
+  
+  #info-dispaly_info{
+    direction:ltr;
 
-#info-dispaly_info{
-  direction:ltr;
+    #info-dispaly_title{
+      background-color: white;
+      // text-align: center;
+      padding: 1rem;
+
+      p{
+        padding-top: 10px;
+      }
+    }
+  }
 }

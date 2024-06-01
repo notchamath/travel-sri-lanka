@@ -3,9 +3,10 @@ import { APILoader, PlaceOverview } from '@googlemaps/extended-component-library
 
 import './InfoDisplay.styles.scss';
 
-const InfoDisplay = memo(({id, open, setOpen}) => {
+const InfoDisplay = memo(({openLocation, open, setOpen}) => {
 
   const infoDisplayRef = useRef();
+  const {id, category, desc, emoji} = openLocation;
 
   useEffect(() => {
     const handleClickOutside = (e) => {
@@ -32,7 +33,13 @@ const InfoDisplay = memo(({id, open, setOpen}) => {
     open && <section id='info-dispaly_container' ref={infoDisplayRef}> 
       <div id="info-dispaly_info">
         {/* <APILoader apiKey="YOUR_API_KEY_HERE" solutionChannel="GMP_GCC_placeoverview_v1_xl" /> */}
-        <PlaceOverview place={id}/>
+        <div id='info-dispaly_title'>
+          <h3>{emoji} {category}</h3>
+          <p>{desc}</p>
+        </div>
+          
+        <PlaceOverview place={id}>
+        </PlaceOverview>
       </div>
     </section>
   )
