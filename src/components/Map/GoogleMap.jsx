@@ -25,9 +25,9 @@ function GoogleMap() {
         fetchLocations();        
     }, []);
 
-    const handlePinClick = (id, category, desc) => {
+    const handlePinClick = (id, category, desc, emoji) => {
         setOpen(true);
-        setOpenLocation({id, category, desc, emoji: getEmoji(category)});
+        setOpenLocation({id, category, desc, emoji});
     }
 
     const defaultCenter = {lat: 7.8731, lng: 80.7718};
@@ -44,22 +44,22 @@ function GoogleMap() {
         switch(category){
             case CATEGORIES[0]:
                 // Tourist Attraction
-                return '📷'
+                return '📷';
            case CATEGORIES[1]:
                 // Beach
-                return '🏝️'
+                return '🏝️';
            case CATEGORIES[2]:
                 // National Park
-                return '🐘'
+                return '🐘';
            case CATEGORIES[3]:
                 // Temple
-                return '🙏'
+                return '🙏';
            case CATEGORIES[4]:
                 // Hotel
-                return '🏨'
+                return '🏨';
            case CATEGORIES[5]:
                 // Restaurant
-                return '🍴'
+                return '🍴';
            default:
                 <Pin/>
         }
@@ -76,11 +76,12 @@ function GoogleMap() {
                 };
                 
                 const id = location.id;
-                const desc = location?.editorialSummary?.text
+                const desc = location?.editorialSummary?.text;
+                const emoji = getEmoji(category);
                 
                 return <div key={id}>
-                    <AdvancedMarker  className={'marker_emoji'} position={coords} onClick={() => handlePinClick(id, category, desc)}>
-                        <span>{getEmoji(category)}</span>
+                    <AdvancedMarker  className={'marker_emoji'} position={coords} onClick={() => handlePinClick(id, category, desc, emoji)}>
+                        <span>{emoji}</span>
                     </AdvancedMarker>
                 </div>
             });
