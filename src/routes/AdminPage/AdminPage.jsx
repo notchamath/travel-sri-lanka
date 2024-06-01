@@ -1,4 +1,4 @@
-import { addNewLocationToDb } from "../../utils/firebase/firebase.utils";
+import { addNewLocationToDb, signOutUser } from "../../utils/firebase/firebase.utils";
 import { CATEGORIES } from "../../utils/firebase/firebase.utils";
 
 function AdminPage() {
@@ -43,6 +43,8 @@ function AdminPage() {
             </form>
 
             <a target="_blank" rel="noreferrer" href="https://developers.google.com/maps/documentation/javascript/place-details#javascript">Get Google ID's</a>
+
+            <button onClick={signOutUser}>Sign Out</button>
         </div>
     )
 }
