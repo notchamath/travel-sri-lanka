@@ -8,7 +8,7 @@ function AdminPage() {
         const category = event.target[1].value
         const url = `https://places.googleapis.com/v1/places/${input}`;
         const headers = {
-            'X-Goog-Api-Key': import.meta.env.VITE_GOOGLE_MAP_KEY,
+            'X-Goog-Api-Key': import.meta.env.GOOGLE_MAP_KEY,
             'X-Goog-FieldMask': 'id,displayName,location,editorialSummary'
         };
         

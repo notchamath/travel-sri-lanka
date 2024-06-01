@@ -91,13 +91,13 @@ function GoogleMap() {
     return (
         <>
             <InfoDisplay openLocation={openLocation} open={open} setOpen={setOpen}/>
-            <APIProvider apiKey={import.meta.env.VITE_GOOGLE_MAP_KEY}>
+            <APIProvider apiKey={import.meta.env.GOOGLE_MAP_KEY}>
                 <div id='map'>
                     <Map 
                         defaultZoom={defaultZoom}
                         defaultCenter={defaultCenter}
                         restriction={{latLngBounds: boundRestrictions}}
-                        mapId={import.meta.env.VITE_MAP_ID}
+                        mapId={import.meta.env.MAP_ID}
                     >
                         {
                             displayLocations()
