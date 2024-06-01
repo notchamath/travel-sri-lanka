@@ -30,6 +30,7 @@ export const onAuthStateChangedListener = (callback) => onAuthStateChanged(auth,
 // FireStore
 export const db = getFirestore();
 
+// if changing this, change switch statement in GoogleMap Component
 export const CATEGORIES = ['Tourist Attraction', 'Beach', 'National Park', 'Temple', 'Hotel', 'Restaurant'];
 
 export const addNewLocationToDb = async (locationData, category) => {
@@ -51,11 +52,15 @@ export const addNewLocationToDb = async (locationData, category) => {
 }
 
 export const getAllLocationsFromDb = async () => {
+  let locationsList = {};
 
-  const q = query(collection(db, 'landmarks'));
-  const locations = await getDocs(q);
+  for ( let category of CATEGORIES) {
 
-  const locationsList = locations.docs.map(doc => doc.data());
+    const q = query(collection(db, category));
+    const locations = await getDocs(q);
+
+    locationsList[category] = locations.docs.map(doc => doc.data());
+  }
 
   return locationsList;
 }

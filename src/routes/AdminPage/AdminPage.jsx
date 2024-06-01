@@ -30,18 +30,19 @@ function AdminPage() {
     }
 
     return (
-        <div className='search'>
+        <div className='admin-form'>
             <form onSubmit={handleSearch}>
-                <input label='location' type="text" placeholder='Add place by ID'/>
-                <select required name="category" id="category-select">
+                <input required label='location' type="text" placeholder='Add place by ID'/>
+                <select name="category" id="category-select">
                     <option value={null}>Choose Category</option>
                     {CATEGORIES.map(category => {
                         return <option value={category}>{category}</option>
                     })}
-                   
                 </select>
                 <button type='submit'>Add place</button>
             </form>
+
+            <a target="_blank" rel="noreferrer" href="https://developers.google.com/maps/documentation/javascript/place-details#javascript">Get Google ID's</a>
         </div>
     )
 }
