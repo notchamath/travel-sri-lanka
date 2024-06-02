@@ -5,7 +5,7 @@ import { getFirestore, doc, getDoc, setDoc, getDocs, query, collection } from "f
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: import.meta.env.FIREBASE_KEY,
+  apiKey: import.meta.env.VITE_FIREBASE_KEY,
   authDomain: "wander-sri-lanka-d57d0.firebaseapp.com",
   projectId: "wander-sri-lanka-d57d0",
   storageBucket: "wander-sri-lanka-d57d0.appspot.com",
