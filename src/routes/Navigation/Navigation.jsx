@@ -5,6 +5,7 @@ import { signOutUser } from "../../utils/firebase/firebase.utils";
 import { UserContext } from '../../contexts/user.context';
 
 import Logo from "../../components/Logo/Logo";
+import Footer from "../../components/Footer/Footer";
 
 import './Navigation.styles.scss';
 
@@ -47,7 +48,11 @@ function Navigation() {
         //     </nav>
        
         // </div>
-            <Outlet/>
+            <>
+                <Outlet/>
+                <Footer/>
+            </>
+
     )
 }
 

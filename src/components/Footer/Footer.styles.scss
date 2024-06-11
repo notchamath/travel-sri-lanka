@@ -1,0 +1,22 @@
+@import '../../config';
+
+.footer__container{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 10rem;
+    height: 20vh;
+    width: 100vw;
+    background: $primary-color;
+    
+    .footer_text{
+        color: $white;
+        font-weight: bold;
+        text-transform: uppercase;
+
+        a{
+            color: inherit;
+        }
+    }
+  }

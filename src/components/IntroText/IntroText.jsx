@@ -1,4 +1,4 @@
-import './IntroText.scss'
+import './IntroText.styles.scss'
 
 function IntroText() {
   return (
