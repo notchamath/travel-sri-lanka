@@ -13,11 +13,11 @@
         padding-top: 10px;
         top: 0;
         z-index: 11;
+        background: $grey-dark-gradient;
 
         .logo-container{
             box-sizing: border-box;
             cursor: pointer;
-            padding: 5px;
         }
 
         .navigation__buttons{
