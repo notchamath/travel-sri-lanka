@@ -1,6 +1,6 @@
 # [Travel Sri Lanka Website (Using Google APIs)](https://visit-sri-lanka.vercel.app/)
 
-<img src="./assets/screenshots/port1.png">
+<img src="./src/assets/screenshots/port1.png">
 
 ## The Idea
 A Fully Responsive React App that fetches data from Google Maps & Google Places APIs, allowing users to browse tourist attractions in Sri Lanka. Featuring React Context Login, Firebase backend, Custom Hooks, React Router, Protected Routes, Conditional Rendering & Sass styling.
