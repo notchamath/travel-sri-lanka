@@ -33,7 +33,7 @@ function GoogleMap() {
     const defaultCenter = {lat: 7.8731, lng: 80.7718};
     const defaultZoom = 7.5;
     const boundRestrictions = {
-        north: 9.99,   // Northernmost latitude
+        north: 10.5,   // Northernmost latitude
         south: 5.4,   // Southernmost latitude
         east: 82.4,   // Easternmost longitude
         west: 79.3,    // Westernmost longitude
