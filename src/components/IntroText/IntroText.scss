@@ -11,3 +11,10 @@
     color: $accent-color;
   }
 }
+
+// media queries
+@media screen and (max-width: 1100px) {
+  .into-text-container{
+    font-size: 2rem;
+  }
+}
