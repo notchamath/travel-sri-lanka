@@ -18,41 +18,36 @@ function Navigation() {
 
     // clicking Logo button takes user to homepage, if already on homepage, reload the page
     const handleLogoClick = () => {
-        if(location.pathname === '/'){
-            return;
-        } else {
+        if(location.pathname !== '/'){
             navigate('/');
         }
         window.scrollTo(0, 0);
     }
 
     return (
-        // <div className="app-container">
-        //     <nav className="navigation__nav">
-        //         <div className="logo-container" onClick={handleLogoClick}>
-        //             <Logo/>
-        //         </div>
+        <div className="app-container">
+            <nav className="navigation__nav">
+                <div className="logo-container" onClick={handleLogoClick}>
+                    <Logo/>
+                </div>
 
 
-        //         {
-        //             currentUser?
-        //             <div className="navigation__buttons">
-        //                 <div className="navigation__btn" onClick={signOutUser}>Sign Out</div>
-        //             </div>
-        //                 :
-        //             <div className="navigation__buttons">
-        //                 <Link to='/auth' className="navigation__btn">Sign In</Link> 
-        //             </div>
-        //         }
+                {
+                    currentUser?
+                    <div className="navigation__buttons">
+                        <div className="navigation__btn" onClick={signOutUser}>Sign Out</div>
+                    </div>
+                        :
+                    <div className="navigation__buttons">
+                        <Link to='/auth' className="navigation__btn">Sign In</Link> 
+                    </div>
+                }
 
-        //     </nav>
+            </nav>
        
-        // </div>
-            <>
-                <Outlet/>
-                <Footer/>
-            </>
-
+            <Outlet/>
+            <Footer/>
+        </div>
     )
 }
 
