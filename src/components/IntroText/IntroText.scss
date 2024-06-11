@@ -1,0 +1,13 @@
+@import '../../config';
+
+.into-text-container{
+  text-align: center;
+  font-size: 4rem;
+  font-weight: 700;
+  color: $white;
+  padding: 2rem;
+
+  span{
+    color: $accent-color;
+  }
+}

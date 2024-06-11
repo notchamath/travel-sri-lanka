@@ -1,8 +1,12 @@
 import GoogleMap from '../../components/Map/GoogleMap';
+import IntroText from '../../components/IntroText/IntroText';
 
 function Home() {
   return (
-    <GoogleMap/>
+    <>
+      <IntroText/>
+      <GoogleMap/>
+    </>
   )
 }
 

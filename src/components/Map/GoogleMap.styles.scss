@@ -1,8 +1,10 @@
+@import '../../config';
+
 #map{
-    width: 100%;
+    width: 80%;
     height: 95vh;
     margin: auto;
-    border-radius: 20%;
+    box-shadow: 0px 0px 15px $white;
 
     .marker_emoji{
         font-size: 1.2rem;

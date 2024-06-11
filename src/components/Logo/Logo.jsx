@@ -1,4 +1,4 @@
-import mainLogo from '../../../public/logo.jpeg';
+import mainLogo from '../../../src/assets/logo.jpeg';
 
 import './Logo.styles.scss';
 

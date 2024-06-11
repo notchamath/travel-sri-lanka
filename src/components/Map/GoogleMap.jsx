@@ -59,7 +59,7 @@ function GoogleMap() {
                 return '🏨';
            case CATEGORIES[5]:
                 // Restaurant
-                return '🍴';
+                return '🍽️';
            default:
                 <Pin/>
         }
